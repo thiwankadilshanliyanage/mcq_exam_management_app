@@ -23,7 +23,7 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-                <button type="button" class="qbtn btn btn-primary btn-lg">Add Questions</button>
+                <button type="button" class="qbtn btn btn-primary btn-lg">New Exam</button>
             </div><br><br>
             <div class="table-responsive" id="no-more-tables">
                 <table class="table bg-white">
@@ -37,9 +37,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-title="Exam"></td>
-                            <td data-title="Last Updated"></td>
-                            <td data-title="Status"></td>
+                            <td data-title="Exam">1st semester</td>
+                            <td data-title="Last Updated">22nd June in 2022</td>
+                            <td data-title="Status">Published</td>
 
                         </tr>
                     </tbody>

@@ -4,6 +4,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    height: 100vh;
+    justify-content: center;
+}
 
 .search{
     margin-right: 1000px;
