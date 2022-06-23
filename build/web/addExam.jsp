@@ -19,6 +19,10 @@
     <body>    
         <section class="p-5">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <form class="d-grid gap-2 d-md-flex justify-content-md-end col-3 search" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
                 <button type="button" class="qbtn btn btn-primary btn-lg">Add Questions</button>
             </div><br><br>
             <div class="table-responsive" id="no-more-tables">
