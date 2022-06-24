@@ -15,7 +15,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         
         <!--CSS file -->
-        <link rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
         <title>Login</title>
     </head>
     <body>
