@@ -1,0 +1,20 @@
+.qlist{
+    float: left;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+.exname{
+    font-weight: bold;
+    font-size: 20px;
+}
+.div1{
+    border: solid;
+    margin-left: 20px;
+    height: 380px;
+    
+}
+.div2{
+    border: solid;
+    margin-right: 20px;
+    height: 380px;
+}
