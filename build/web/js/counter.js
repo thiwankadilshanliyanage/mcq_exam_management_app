@@ -5,8 +5,8 @@
 
 
  let countDown = () => {
-   let futureDate = new Date("13 Jan 2021");
-   let currentDate = new Date();
+ let futureDate = new Date("13 Oct 2022");
+ let currentDate = new Date();
    let myDate = futureDate - currentDate;
    //console.log(myDate);
 
