@@ -30,9 +30,33 @@
                             <div class="p-3 border  div1">
                                 <p class="lead">
                                     Exam Completed
-                                </p><br><br>
-                                <h1 class=" d-flex justify-content-center atend" >10/20</h1>
-                            </div>
+                                </p>
+                                <h1 class=" d-flex justify-content-center atend" >10/20</h1>          
+<!--counter-->
+                            <div class="wrapper">
+                                <div class="">
+                                    <h1 class="title">Time Left</h1>
+                                    <div class="countdown-container">
+                                        <div>
+                                            <p id="days" class="big-text">0</p>
+                                            <span>Days</span>
+                                        </div>
+                                        <div>
+                                            <p id="hours" class="big-text">0</p>
+                                            <span>Hours</span>
+                                        </div>
+                                        <div>
+                                            <p id="min" class="big-text">0</p>
+                                            <span>Min</span>
+                                        </div>
+                                        <div>
+                                            <p id="sec" class="big-text">0</p>
+                                            <span>Sec</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></div>
+<!--counter-->
                         </div>
                         <div class="col-12">
                             <div class="p-3 border div3">
@@ -45,5 +69,6 @@
                 </div>
             </div>
         </div>
+        <script src="js/exam__detail.js"></script>
     </body>
 </html>
