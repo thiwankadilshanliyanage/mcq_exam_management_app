@@ -42,6 +42,36 @@
                             <td data-title="Status">Published</td>
 
                         </tr>
+                        <tr>
+                            <td data-title="Exam">1st semester</td>
+                            <td data-title="Last Updated">22nd June in 2022</td>
+                            <td data-title="Status">Published</td>
+
+                        </tr>
+                        <tr>
+                            <td data-title="Exam">1st semester</td>
+                            <td data-title="Last Updated">22nd June in 2022</td>
+                            <td data-title="Status">Published</td>
+
+                        </tr>
+                        <tr>
+                            <td data-title="Exam">1st semester</td>
+                            <td data-title="Last Updated">22nd June in 2022</td>
+                            <td data-title="Status">Published</td>
+
+                        </tr>
+                        <tr>
+                            <td data-title="Exam">1st semester</td>
+                            <td data-title="Last Updated">22nd June in 2022</td>
+                            <td data-title="Status">Published</td>
+
+                        </tr>
+                        <tr>
+                            <td data-title="Exam">1st semester</td>
+                            <td data-title="Last Updated">22nd June in 2022</td>
+                            <td data-title="Status">Published</td>
+
+                        </tr>
                     </tbody>
                 </table>
             </div>

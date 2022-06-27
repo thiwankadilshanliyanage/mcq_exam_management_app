@@ -125,7 +125,7 @@
             </section>
 
         </div>
-        <div class="w-50 p-3 addquestiondiv">
+        <div class="w-50 p-3 addquestiondiv border">
             <form>
                 <div class="row g-2">
                     <div class="col-md">

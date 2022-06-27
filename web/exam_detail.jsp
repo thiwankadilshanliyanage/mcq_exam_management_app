@@ -19,20 +19,31 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="d-inline qlist">
-            <button type="button" class="btn btn-labeled btn-default">
-                <i class="fa fa-chevron-left"></i></button>
-            <span class="btn-label exname">Exam Name</span><br><br></div><br><br><br>
-
-        <section>
-            <section>
-                <div class="w-50 div1"></div><br>
-                <div class="w-50 div1"></div>
-            <div class="w-25 div2 d-flex justify-content-end"></div>
-            </section>
-
-        </section>
-
-
+        <button type="button" class="btn btn-labeled btn-default">
+            <i class="fa fa-chevron-left"></i></button>
+        <span class="btn-label exname">Exam Name</span>  
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <div class="p-3 border  div1">
+                                <p class="lead">
+                                    Exam Completed
+                                </p><br><br>
+                                <h1 class=" d-flex justify-content-center atend" >10/20</h1>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="p-3 border div3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3 border div2"></div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
