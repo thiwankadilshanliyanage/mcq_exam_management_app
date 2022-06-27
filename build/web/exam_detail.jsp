@@ -27,48 +27,100 @@
                 <div class="col-6">
                     <div class="row g-2">
                         <div class="col-12">
+                            <!--DIV 1-->
                             <div class="p-3 border  div1">
                                 <p class="lead">
                                     Exam Completed
                                 </p>
                                 <h1 class=" d-flex justify-content-center atend" >10/20</h1>          
-<!--counter-->
-                            <div class="wrapper">
-                                <div class="">
-                                    <h1 class="title">Time Left</h1>
-                                    <div class="countdown-container">
-                                        <div>
-                                            <p id="days" class="big-text">0</p>
-                                            <span>Days</span>
-                                        </div>
-                                        <div>
-                                            <p id="hours" class="big-text">0</p>
-                                            <span>Hours</span>
-                                        </div>
-                                        <div>
-                                            <p id="min" class="big-text">0</p>
-                                            <span>Min</span>
-                                        </div>
-                                        <div>
-                                            <p id="sec" class="big-text">0</p>
-                                            <span>Sec</span>
+                                <!--counter-->
+                                <div class="wrapper">
+                                    <div class="">
+                                        <h1 class="title">Time Left</h1>
+                                        <div class="countdown-container">
+                                            <div>
+                                                <p id="days" class="big-text">0</p>
+                                                <span>Days</span>
+                                            </div>
+                                            <div>
+                                                <p id="hours" class="big-text">0</p>
+                                                <span>Hours</span>
+                                            </div>
+                                            <div>
+                                                <p id="min" class="big-text">0</p>
+                                                <span>Min</span>
+                                            </div>
+                                            <div>
+                                                <p id="sec" class="big-text">0</p>
+                                                <span>Sec</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div></div>
-<!--counter-->
+                                </div></div>
+                            <!--counter-->
                         </div>
+                        <!--DIV 3-->
                         <div class="col-12">
                             <div class="p-3 border div3">
+                                <p class="lead">
+                                    Exam Started Time
+                                </p><br><br>
+                                <p class="lead">
+                                    Exam Ending Time
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--DIV 2-->
                 <div class="col-6">
-                    <div class="p-3 border div2"></div>
+                    <div class="p-3 border div2">
+                        <p class="lead">
+                            Attending Students List
+                        </p>
+                        <!--Student List-->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Status</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark Wood</td>
+                                    <td>Pending</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob Oram</td>
+                                    <td>Completed</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob Oram</td>
+                                    <td>Completed</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob Oram</td>
+                                    <td>Completed</td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
+        <br><br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary btnendexam" type="button">End Exam</button>
+        </div>
+
         <script src="js/exam__detail.js"></script>
     </body>
 </html>
