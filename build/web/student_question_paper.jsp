@@ -53,27 +53,51 @@
         <p class="q">a) What is question A?</p>
         <div class="w-50 p-3 mb-4 border justify-content-center div">
             <div class="answerlist">
+                <!--                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+                                    <label class="form-check-label text" for="flexCheckDefault">
+                                        Answer 1
+                                    </label><br><br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+                                    <label class="form-check-label text" for="flexCheckDefault">
+                                        Answer 2
+                                    </label><br><br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+                                    <label class="form-check-label text" for="flexCheckDefault">
+                                        Answer 3
+                                    </label><br><br>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+                                    <label class="form-check-label text" for="flexCheckDefault">
+                                        Answer 4
+                                    </label>
+                                </div>-->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label text" for="flexCheckDefault">
-                        Answer 1
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label text" for="flexRadioDefault1">
+                         Answer 1
                     </label><br><br>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label text" for="flexCheckDefault">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label text" for="flexRadioDefault2">
                         Answer 2
                     </label><br><br>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label text" for="flexCheckDefault">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label text" for="flexRadioDefault2">
                         Answer 3
                     </label><br><br>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label text" for="flexCheckDefault">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label text" for="flexRadioDefault2">
                         Answer 4
                     </label>
                 </div>
