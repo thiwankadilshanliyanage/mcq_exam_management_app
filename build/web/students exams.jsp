@@ -30,7 +30,6 @@
                             <th>Starting Time</th>
                             <th>Exam Duration</th>
                             <th>Status</th>
-
                         </tr>
                     </thead>
                     <tbody>
