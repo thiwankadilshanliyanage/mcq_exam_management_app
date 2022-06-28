@@ -1,0 +1,32 @@
+.exname{
+    font-weight: bold;
+    font-size: 20px; 
+}
+.maindiv{
+    margin-top: 40px;
+}
+.div1{
+    height: 350px;
+    width: 700px;
+}
+.div2{
+    width: 700px;
+    height: 450px;
+}
+.status{
+    margin-left: 240px;
+    margin-top: 50px;
+    font-size: 50px;
+    color: #009966;
+    font-weight: bold;
+}
+.grade{
+    margin-left: 215px;
+    font-size: 30px;
+    color: #666666;
+    font-weight: bold;
+}
+.closebtn{
+    margin-left: 640px;
+    position: absolute;
+}
