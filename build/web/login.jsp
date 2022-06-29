@@ -23,17 +23,19 @@
 
         <h1 class="text-center">Login</h1>
         
-        <form class="needs-validation">
+        <!--login form-->
+        
+        <form class="needs-validation" method="post" action="login">
             <div class="form-group was-validated">
                 <label class="form-label" for="email">Email address</label>
-                <input class="form-control" type="email" id="email" required>
+                <input class="form-control" type="email" name="email" id="email" required>
                 <div class="invalid-feedback">
                     Please enter your email address
                 </div>
             </div>
             <div class="form-group was-validated">
                 <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" id="password" required>
+                <input class="form-control" type="password" name="pw" id="password" required>
                 <div class="invalid-feedback">
                     Please enter your password
                 </div>
@@ -41,6 +43,8 @@
             <input class="btn btn-success w-100" type="submit" value="LOG IN">
         </form>
 
+        <!--login form-->
+        
     </div>
     </body>
 </html>
