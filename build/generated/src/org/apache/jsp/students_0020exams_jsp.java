@@ -48,8 +48,9 @@ public final class students_0020exams_jsp extends org.apache.jasper.runtime.Http
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">\n");
       out.write("        <link type=\"text/css\" rel=\"stylesheet\" href=\"css/exam.css\">\n");
-      out.write("        <title>JSP Page</title>\n");
+      out.write("        <title>Students Exams</title>\n");
       out.write("        \n");
       out.write("    </head>\n");
       out.write("    <body>\n");
@@ -68,7 +69,6 @@ public final class students_0020exams_jsp extends org.apache.jasper.runtime.Http
       out.write("                            <th>Starting Time</th>\n");
       out.write("                            <th>Exam Duration</th>\n");
       out.write("                            <th>Status</th>\n");
-      out.write("\n");
       out.write("                        </tr>\n");
       out.write("                    </thead>\n");
       out.write("                    <tbody>\n");

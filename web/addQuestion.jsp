@@ -167,61 +167,61 @@
         <form>
             <div class="row g-2">
                 <div class="col-md">
-                    <input type="number" class="form-control " id="floatingInputGrid" placeholder="Number">
+                    <input type="number" class="form-control" placeholder="Number">
                 </div>
                 <div class="col-md col-xs-2">
-                    <input type="text" class="form-control" id="floatingInputGrid" placeholder="Question">
+                    <input type="text" class="form-control" placeholder="Question">
                 </div>
             </div>
             <br>
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                    <label for="inputPassword6" class="col-form-label">1.</label>
+                    <label  class="col-form-label">1.</label>
                 </div>
                 <div class="col-auto width">
-                    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" placeholder="Answer 1">
+                    <input type="text" id="inputPassword6" class="form-control" placeholder="Answer 1">
                 </div>
                 <div class="col-auto">
-                    <span id="passwordHelpInline" class="form-text">
+                    <span class="form-text">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     </span>
                 </div>
             </div><br>
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                    <label for="inputPassword6" class="col-form-label">2.</label>
+                    <label class="col-form-label">2.</label>
                 </div>
                 <div class="col-auto width">
-                    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" placeholder="Answer 2">
+                    <input type="text" id="inputPassword6" class="form-control" placeholder="Answer 2">
                 </div>
                 <div class="col-auto">
-                    <span id="passwordHelpInline" class="form-text">
+                    <span class="form-text">
+                        <input type="checkbox" class="form-check-input">
+                    </span>
+                </div>
+            </div><br>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label  class="col-form-label">3.</label>
+                </div>
+                <div class="col-auto width">
+                    <input type="text"  class="form-control" placeholder="Answer 3">
+                </div>
+                <div class="col-auto">
+                    <span  class="form-text">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     </span>
                 </div>
             </div><br>
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                    <label for="inputPassword6" class="col-form-label">3.</label>
+                    <label class="col-form-label">4.</label>
                 </div>
                 <div class="col-auto width">
-                    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" placeholder="Answer 3">
+                    <input type="text" class="form-control" placeholder="Answer 4">
                 </div>
                 <div class="col-auto">
-                    <span id="passwordHelpInline" class="form-text">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    </span>
-                </div>
-            </div><br>
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                    <label for="inputPassword6" class="col-form-label">4.</label>
-                </div>
-                <div class="col-auto width">
-                    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" placeholder="Answer 4">
-                </div>
-                <div class="col-auto">
-                    <span id="passwordHelpInline" class="form-text">
+                    <span class="form-text">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     </span>
                 </div>
