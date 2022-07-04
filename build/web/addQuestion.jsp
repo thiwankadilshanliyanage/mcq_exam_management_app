@@ -133,12 +133,12 @@
                     </tbody>
                 </table>
             </div>
-            <form>
+            <form method="post" action="addexam">
                   <div class="row form-group">
                     <label for="date" class="col-sm-2 col-form-label">Exam Name</label>
                     <div class="col-sm-4">
                         <div class="input-group date" id="duration">
-                            <input type="text" class="form-control" placeholder="Exam Name">
+                            <input name="exam" type="text" class="form-control" placeholder="Exam Name">
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                     <label for="date" class="col-sm-2 col-form-label">Exam Date</label>
                     <div class="col-sm-4">
                         <div class="input-group date" id="datepicker">
-                            <input type="text" class="form-control">
+                            <input name="date" type="text" class="form-control">
                             <span class="input-group-append">
                                 <span class="input-group-text bg-white d-block">
                                     <i class="fa fa-calendar"></i>
@@ -160,7 +160,7 @@
                     <label for="date" class="col-sm-2 col-form-label">Exam Time</label>
                     <div class="col-sm-4">
                         <div class="input-group date" id="duration">
-                            <input type="text" class="form-control time-pickable" placeholder="Exam Time" readonly>
+                            <input name="time" type="text" class="form-control time-pickable" placeholder="Exam Time" readonly>
                         </div>
                     </div>
                 </div>
@@ -168,16 +168,16 @@
                 <div class="row form-group">
                     <label for="date" class="col-sm-2 col-form-label">Exam Duration</label>
                     <div class="col-sm-4">
-                        <div class="input-group date" id="duration">
-                            <input type="number" class="form-control" placeholder="Minutes">
+                        <div  class="input-group date" id="duration">
+                            <input name="duration" type="number" class="form-control" placeholder="Minutes">
                         </div>
                     </div>
                 </div>
                 <br>
                 <div class="-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="submit" class="btn btn-outline-success">Update</button>
-                    <button type="submit" class="btn btn-primary">Save Paper</button>
-                    <button type="submit" class="btn btn-success">Publish Paper</button>
+                    <input type="submit" name="update" class="btn btn-outline-success" value="Update"/>
+                    <input type="submit" name="save" class="btn btn-primary" value="Save Paper">
+                    <input type="submit" name="publish" class="btn btn-success" value="Publish Paper">
                 </div>   
             </form>
         </section>

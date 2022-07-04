@@ -7,6 +7,10 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,12 +38,43 @@ public class addexam extends HttpServlet {
         String uid = (String)session.getValue("user_id");
         RequestDispatcher rd = request.getRequestDispatcher("addExam.jsp");
         rd.forward(request, response);
+        
+       
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
+       
+        HttpSession session = request.getSession(true);
+        String uid = (String)session.getValue("user_id");
+        System.out.println(uid);
+        
+        
+        
+        try {
+            Connection con;
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+            System.out.println(con);
+        } catch (Exception e) {
+        }
+        
+        
+         String cap = request.getParameter("publish");
+        if(cap.equals("Publish Paper")){
+            
+        String e_name = request.getParameter("exam");
+        String e_date = request.getParameter("date");
+        String e_time = request.getParameter("time");
+        String e_duration = request.getParameter("duration");
+        
+        System.out.println(e_name);
+        System.out.println(e_date);
+        System.out.println(e_time);
+        System.out.println(e_duration);
+        }
     }
 
 
