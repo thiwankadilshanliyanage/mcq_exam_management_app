@@ -3,6 +3,11 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.Connection;
 
 public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -44,6 +49,11 @@ public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -54,9 +64,9 @@ public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link type=\"text/css\" rel=\"stylesheet\" href=\"css/exam.css\">\n");
       out.write("\n");
       out.write("        <title>Add Exam</title>\n");
-      out.write("        \n");
+      out.write("\n");
       out.write("        <!--navbar-->\n");
-      out.write("        \n");
+      out.write("\n");
       out.write("    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n");
       out.write("        <div class=\"container-fluid\">\n");
       out.write("            <a class=\"navbar-brand\" href=\"#\">Navbar</a>\n");
@@ -97,14 +107,13 @@ public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<body>    \n");
       out.write("    <section class=\"p-5\">\n");
       out.write("        <div class=\"d-grid gap-2 d-md-flex justify-content-md-end\">\n");
-      out.write("            <form class=\"d-grid gap-2 d-md-flex justify-content-md-end col-3 search\" role=\"search\">\n");
-      out.write("                <input class=\"form-control me-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n");
-      out.write("                <button class=\"btn btn-outline-success\" type=\"submit\">Search</button>\n");
-      out.write("            </form>\n");
-      out.write("            <button type=\"button\" class=\"qbtn btn btn-primary btn-lg\">New Exam</button>\n");
+      out.write("\n");
+      out.write("            <!--search -->\n");
+      out.write("            <input class=\"col-3\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" id=\"myinput\" onkeyup='tableSearch()'>\n");
+      out.write("            <form action=\"addQuestion.jsp\"><button type=\"submit\" class=\"qbtn btn btn-primary btn-lg\" >New Exam</button></form>\n");
       out.write("        </div><br><br>\n");
       out.write("        <div class=\"table-responsive\" id=\"no-more-tables\">\n");
-      out.write("            <table class=\"table bg-white\">\n");
+      out.write("            <table class=\"table bg-white\" id=\"mytable\">\n");
       out.write("                <thead class=\"bg-dark text-light\">\n");
       out.write("                    <tr>\n");
       out.write("                        <th>Exam</th>\n");
@@ -113,47 +122,74 @@ public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                    </tr>\n");
       out.write("                </thead>\n");
-      out.write("                <tbody>\n");
-      out.write("                    <tr>\n");
-      out.write("                        <td data-title=\"Exam\">1st semester</td>\n");
-      out.write("                        <td data-title=\"Last Updated\">22nd June in 2022</td>\n");
-      out.write("                        <td data-title=\"Status\">Published</td>\n");
+      out.write("                ");
+
+                    try {
+                        Connection con;
+                        Class.forName("com.mysql.jdbc.Driver");
+                        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                        System.out.println("Connected Success");
+
+                        String qry = "select * from mcq_manage_app.exam";
+                        PreparedStatement ps = con.prepareStatement(qry);
+
+                        ResultSet rs = ps.executeQuery();
+                        while (rs.next()) {
+                            String exam = rs.getString("e_name");
+                            String lastupdated = rs.getString("e_date");
+                            String status = rs.getString("pub_or_pend");
+
+                            System.out.println(exam);
+                            System.out.println(lastupdated);
+                            System.out.println(status);
+
+
+                
       out.write("\n");
-      out.write("                    </tr>\n");
-      out.write("                    <tr>\n");
-      out.write("                        <td data-title=\"Exam\">1st semester</td>\n");
-      out.write("                        <td data-title=\"Last Updated\">22nd June in 2022</td>\n");
-      out.write("                        <td data-title=\"Status\">Published</td>\n");
+      out.write("                <tr>\n");
+      out.write("                    <td data-title=\"Exam\">");
+      out.print( rs.getString("e_name"));
+      out.write("</td>\n");
+      out.write("                    <td data-title=\"Last Updated\">");
+      out.print( rs.getString("e_date"));
+      out.write("</td>\n");
+      out.write("                    <td data-title=\"Status\">");
+      out.print( rs.getString("pub_or_pend"));
+      out.write("</td>\n");
+      out.write("                </tr>                               \n");
+      out.write("                ");
+
+                        }
+
+                    } catch (Exception e) {
+                    }
+                
       out.write("\n");
-      out.write("                    </tr>\n");
-      out.write("                    <tr>\n");
-      out.write("                        <td data-title=\"Exam\">1st semester</td>\n");
-      out.write("                        <td data-title=\"Last Updated\">22nd June in 2022</td>\n");
-      out.write("                        <td data-title=\"Status\">Published</td>\n");
-      out.write("\n");
-      out.write("                    </tr>\n");
-      out.write("                    <tr>\n");
-      out.write("                        <td data-title=\"Exam\">1st semester</td>\n");
-      out.write("                        <td data-title=\"Last Updated\">22nd June in 2022</td>\n");
-      out.write("                        <td data-title=\"Status\">Published</td>\n");
-      out.write("\n");
-      out.write("                    </tr>\n");
-      out.write("                    <tr>\n");
-      out.write("                        <td data-title=\"Exam\">1st semester</td>\n");
-      out.write("                        <td data-title=\"Last Updated\">22nd June in 2022</td>\n");
-      out.write("                        <td data-title=\"Status\">Published</td>\n");
-      out.write("\n");
-      out.write("                    </tr>\n");
-      out.write("                    <tr>\n");
-      out.write("                        <td data-title=\"Exam\">1st semester</td>\n");
-      out.write("                        <td data-title=\"Last Updated\">22nd June in 2022</td>\n");
-      out.write("                        <td data-title=\"Status\">Published</td>\n");
-      out.write("\n");
-      out.write("                    </tr>\n");
-      out.write("                </tbody>\n");
-      out.write("            </table>\n");
       out.write("        </div>\n");
       out.write("    </section>\n");
+      out.write("    <script type=\"text/javascript\">\n");
+      out.write("        function tableSearch() {\n");
+      out.write("            let input, filter, table, tr, td, i, txtValue;\n");
+      out.write("            console.log(\"is this working\");\n");
+      out.write("            \n");
+      out.write("            input = document.getElementById(\"myinput\");\n");
+      out.write("            filter = input.value.toUpperCase();\n");
+      out.write("            table = document.getElementById(\"mytable\");\n");
+      out.write("            tr = table.getElementsByTagName(\"tr\");\n");
+      out.write("            \n");
+      out.write("            for(let i=0; i<tr.length; i++){\n");
+      out.write("                td = tr[i].getElementsByTagName(\"td\")[0];\n");
+      out.write("                if(td){\n");
+      out.write("                    txtValue = td.textContent || td.innerText;\n");
+      out.write("                    if(txtValue.toUpperCase().indexOf(filter)>-1){\n");
+      out.write("                        tr[i].style.display = \"\";\n");
+      out.write("                    }else{\n");
+      out.write("                        tr[i].style.display = \"none\";\n");
+      out.write("                    }\n");
+      out.write("                }\n");
+      out.write("            }\n");
+      out.write("        }\n");
+      out.write("    </script>\n");
       out.write("</body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

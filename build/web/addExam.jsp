@@ -4,6 +4,11 @@
     Author     : Thiwanka
 --%>
 
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,9 +20,9 @@
         <link type="text/css" rel="stylesheet" href="css/exam.css">
 
         <title>Add Exam</title>
-        
+
         <!--navbar-->
-        
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -58,14 +63,13 @@
 <body>    
     <section class="p-5">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <form class="d-grid gap-2 d-md-flex justify-content-md-end col-3 search" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            <button type="button" class="qbtn btn btn-primary btn-lg">New Exam</button>
+
+            <!--search -->
+            <input class="col-3" type="search" placeholder="Search" aria-label="Search" id="myinput" onkeyup='tableSearch()'>
+            <form action="addQuestion.jsp"><button type="submit" class="qbtn btn btn-primary btn-lg" >New Exam</button></form>
         </div><br><br>
         <div class="table-responsive" id="no-more-tables">
-            <table class="table bg-white">
+            <table class="table bg-white" id="mytable">
                 <thead class="bg-dark text-light">
                     <tr>
                         <th>Exam</th>
@@ -74,46 +78,63 @@
 
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td data-title="Exam">1st semester</td>
-                        <td data-title="Last Updated">22nd June in 2022</td>
-                        <td data-title="Status">Published</td>
+                <%
+                    try {
+                        Connection con;
+                        Class.forName("com.mysql.jdbc.Driver");
+                        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                        System.out.println("Connected Success");
 
-                    </tr>
-                    <tr>
-                        <td data-title="Exam">1st semester</td>
-                        <td data-title="Last Updated">22nd June in 2022</td>
-                        <td data-title="Status">Published</td>
+                        String qry = "select * from mcq_manage_app.exam";
+                        PreparedStatement ps = con.prepareStatement(qry);
 
-                    </tr>
-                    <tr>
-                        <td data-title="Exam">1st semester</td>
-                        <td data-title="Last Updated">22nd June in 2022</td>
-                        <td data-title="Status">Published</td>
+                        ResultSet rs = ps.executeQuery();
+                        while (rs.next()) {
+                            String exam = rs.getString("e_name");
+                            String lastupdated = rs.getString("e_date");
+                            String status = rs.getString("pub_or_pend");
 
-                    </tr>
-                    <tr>
-                        <td data-title="Exam">1st semester</td>
-                        <td data-title="Last Updated">22nd June in 2022</td>
-                        <td data-title="Status">Published</td>
+                            System.out.println(exam);
+                            System.out.println(lastupdated);
+                            System.out.println(status);
 
-                    </tr>
-                    <tr>
-                        <td data-title="Exam">1st semester</td>
-                        <td data-title="Last Updated">22nd June in 2022</td>
-                        <td data-title="Status">Published</td>
 
-                    </tr>
-                    <tr>
-                        <td data-title="Exam">1st semester</td>
-                        <td data-title="Last Updated">22nd June in 2022</td>
-                        <td data-title="Status">Published</td>
+                %>
+                <tr>
+                    <td data-title="Exam"><%= rs.getString("e_name")%></td>
+                    <td data-title="Last Updated"><%= rs.getString("e_date")%></td>
+                    <td data-title="Status"><%= rs.getString("pub_or_pend")%></td>
+                </tr>                               
+                <%
+                        }
 
-                    </tr>
-                </tbody>
-            </table>
+                    } catch (Exception e) {
+                    }
+                %>
         </div>
     </section>
+    <script type="text/javascript">
+        function tableSearch() {
+            let input, filter, table, tr, td, i, txtValue;
+            console.log("is this working");
+            
+            input = document.getElementById("myinput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("mytable");
+            tr = table.getElementsByTagName("tr");
+            
+            for(let i=0; i<tr.length; i++){
+                td = tr[i].getElementsByTagName("td")[0];
+                if(td){
+                    txtValue = td.textContent || td.innerText;
+                    if(txtValue.toUpperCase().indexOf(filter)>-1){
+                        tr[i].style.display = "";
+                    }else{
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

@@ -134,6 +134,15 @@
                 </table>
             </div>
             <form>
+                  <div class="row form-group">
+                    <label for="date" class="col-sm-2 col-form-label">Exam Name</label>
+                    <div class="col-sm-4">
+                        <div class="input-group date" id="duration">
+                            <input type="text" class="form-control" placeholder="Exam Name">
+                        </div>
+                    </div>
+                </div>
+                <br>
                 <div class="row form-group">
                     <label for="date" class="col-sm-2 col-form-label">Exam Date</label>
                     <div class="col-sm-4">
@@ -147,6 +156,15 @@
                         </div>
                     </div>
                 </div><br>
+                <div class="row form-group">
+                    <label for="date" class="col-sm-2 col-form-label">Exam Time</label>
+                    <div class="col-sm-4">
+                        <div class="input-group date" id="duration">
+                            <input type="text" class="form-control time-pickable" placeholder="Exam Time" readonly>
+                        </div>
+                    </div>
+                </div>
+                <br>
                 <div class="row form-group">
                     <label for="date" class="col-sm-2 col-form-label">Exam Duration</label>
                     <div class="col-sm-4">
@@ -237,6 +255,6 @@
             $('#datepicker').datepicker();
         });
     </script>
-
+    <script type="text/javascript" src="js/timepick.js"></script>
 </body>
 </html>
