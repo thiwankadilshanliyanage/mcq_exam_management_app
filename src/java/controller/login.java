@@ -5,6 +5,7 @@
  */
 package controller;
 
+import entities.user;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -27,71 +28,68 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-      String email = request.getParameter("email");
-      String password = request.getParameter("pw");
-      String role = "1";
-      String roles = "2";
-      
-      try {
+
+        String email = request.getParameter("email");
+        String password = request.getParameter("pw");
+        String role = "1";
+        String roles = "2";
+//      user User = null;
+
+        try {
             Connection con;
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app","root","thiwanka123");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
             System.out.println("Connected Success");
-                      
+
             String sql = "select * from mcq_manage_app.user where email=? and password=?";
-            
+
             PreparedStatement ps = con.prepareStatement(sql);
-            
+
             ps.setString(1, email);
             ps.setString(2, password);
-            
+
             String emailDB = "";
             String passDB = "";
             String roledb = "";
-            String roledbs = "";
-            
-            ResultSet rs = ps.executeQuery();     
+            String iddb = "";
+
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+
                 emailDB = rs.getString("email");
                 passDB = rs.getString("password");
-                
+
                 roledb = rs.getString("role_id");
-                
-                
-                System.out.println("Database email :::"+emailDB);
-                System.out.println("Database password :::"+passDB);
-                System.out.println("Database role :::"+roledb);
-            }  
-            if(role.equals(roledb)){
-               if(email.equals(emailDB) && password.equals(passDB)){
-                System.out.println("inside IFF");
-                
-                RequestDispatcher rd = request.getRequestDispatcher("addExam.jsp");
-                rd.forward(request, response);
-            } 
-            } else if(roles.equals(roledb)){
-                System.out.println("heyyyyy");
-                if(email.equals(emailDB) && password.equals(passDB)){
-                System.out.println("inside IFF");
-                
-                RequestDispatcher rd = request.getRequestDispatcher("students exams.jsp");
-                rd.forward(request, response);
-            } 
+                iddb = rs.getString("id");
+                String unamedb = rs.getString("u_name");
+
+                System.out.println("Database email :::" + emailDB);
+                System.out.println("Database password :::" + passDB);
+                System.out.println("Database role :::" + roledb);
+                System.out.println("Database id :::" + iddb);
+                System.out.println("Database name :::" + unamedb);
             }
-                        
-             else{
+            if (role.equals(roledb)) {
+                if (email.equals(emailDB) && password.equals(passDB)) {
+                    HttpSession s = request.getSession(true);
+                    s.putValue("user_id", iddb);
+                    response.sendRedirect(request.getContextPath() + "/addexam");
+                }
+            } else if (roles.equals(roledb)) {
+                if (email.equals(emailDB) && password.equals(passDB)) {
+                    HttpSession s = request.getSession(true);
+                    s.putValue("user_id", iddb);
+                    response.sendRedirect(request.getContextPath() + "/student_exams");
+                }
+            } else {
                 System.out.println("INSIDE ELSE");
-                 RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
                 rd.forward(request, response);
             }
-            
         } catch (Exception e) {
-            System.out.println("Error From LOGIN PART ::"+e.getMessage());
+            System.out.println("Error From LOGIN PART ::" + e.getMessage());
         }
-      
-      
+
     }
 
-    
 }

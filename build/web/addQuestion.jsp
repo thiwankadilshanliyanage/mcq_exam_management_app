@@ -175,7 +175,9 @@
                 </div>
                 <br>
                 <div class="-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="button" class="btn btn-success">Publish Paper</button>
+                    <button type="submit" class="btn btn-outline-success">Update</button>
+                    <button type="submit" class="btn btn-primary">Save Paper</button>
+                    <button type="submit" class="btn btn-success">Publish Paper</button>
                 </div>   
             </form>
         </section>
