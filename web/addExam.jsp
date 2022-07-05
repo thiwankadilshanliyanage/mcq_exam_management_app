@@ -91,7 +91,7 @@
                         ResultSet rs = ps.executeQuery();
                         while (rs.next()) {
                             String exam = rs.getString("e_name");
-                            String lastupdated = rs.getString("e_date");
+                            String lastupdated = rs.getString("e_date_time");
                             String status = rs.getString("pub_or_pend");
 
                             System.out.println(exam);
@@ -102,7 +102,7 @@
                 %>
                 <tr>
                     <td data-title="Exam"><%= rs.getString("e_name")%></td>
-                    <td data-title="Last Updated"><%= rs.getString("e_date")%></td>
+                    <td data-title="Last Updated"><%= rs.getString("e_date_time")%></td>
                     <td data-title="Status"><%= rs.getString("pub_or_pend")%></td>
                 </tr>                               
                 <%

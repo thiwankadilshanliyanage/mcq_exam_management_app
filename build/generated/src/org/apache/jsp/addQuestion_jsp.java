@@ -172,12 +172,12 @@ public final class addQuestion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </tbody>\n");
       out.write("                </table>\n");
       out.write("            </div>\n");
-      out.write("            <form method=\"get\" action=\"addexam\">\n");
+      out.write("            <form method=\"post\" action=\"addexam\">\n");
       out.write("                  <div class=\"row form-group\">\n");
       out.write("                    <label for=\"date\" class=\"col-sm-2 col-form-label\">Exam Name</label>\n");
       out.write("                    <div class=\"col-sm-4\">\n");
       out.write("                        <div class=\"input-group date\" id=\"duration\">\n");
-      out.write("                            <input type=\"text\" class=\"form-control\" placeholder=\"Exam Name\">\n");
+      out.write("                            <input name=\"exam\" type=\"text\" class=\"form-control\" placeholder=\"Exam Name\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
@@ -186,7 +186,7 @@ public final class addQuestion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <label for=\"date\" class=\"col-sm-2 col-form-label\">Exam Date</label>\n");
       out.write("                    <div class=\"col-sm-4\">\n");
       out.write("                        <div class=\"input-group date\" id=\"datepicker\">\n");
-      out.write("                            <input type=\"text\" class=\"form-control\">\n");
+      out.write("                            <input name=\"date\" type=\"text\" class=\"form-control\">\n");
       out.write("                            <span class=\"input-group-append\">\n");
       out.write("                                <span class=\"input-group-text bg-white d-block\">\n");
       out.write("                                    <i class=\"fa fa-calendar\"></i>\n");
@@ -199,7 +199,7 @@ public final class addQuestion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <label for=\"date\" class=\"col-sm-2 col-form-label\">Exam Time</label>\n");
       out.write("                    <div class=\"col-sm-4\">\n");
       out.write("                        <div class=\"input-group date\" id=\"duration\">\n");
-      out.write("                            <input type=\"text\" class=\"form-control time-pickable\" placeholder=\"Exam Time\" readonly>\n");
+      out.write("                            <input name=\"time\" type=\"text\" class=\"form-control time-pickable\" placeholder=\"Exam Time\" readonly>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
@@ -207,8 +207,8 @@ public final class addQuestion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"row form-group\">\n");
       out.write("                    <label for=\"date\" class=\"col-sm-2 col-form-label\">Exam Duration</label>\n");
       out.write("                    <div class=\"col-sm-4\">\n");
-      out.write("                        <div class=\"input-group date\" id=\"duration\">\n");
-      out.write("                            <input type=\"number\" class=\"form-control\" placeholder=\"Minutes\">\n");
+      out.write("                        <div  class=\"input-group date\" id=\"duration\">\n");
+      out.write("                            <input name=\"duration\" type=\"number\" class=\"form-control\" placeholder=\"Minutes\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");

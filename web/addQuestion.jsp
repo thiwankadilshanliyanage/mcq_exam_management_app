@@ -16,7 +16,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         <link type="text/css" rel="stylesheet" href="css/addQ.css">
- 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -134,7 +134,7 @@
                 </table>
             </div>
             <form method="post" action="addexam">
-                  <div class="row form-group">
+                <div class="row form-group">
                     <label for="date" class="col-sm-2 col-form-label">Exam Name</label>
                     <div class="col-sm-4">
                         <div class="input-group date" id="duration">
@@ -144,23 +144,10 @@
                 </div>
                 <br>
                 <div class="row form-group">
-                    <label for="date" class="col-sm-2 col-form-label">Exam Date</label>
-                    <div class="col-sm-4">
-                        <div class="input-group date" id="datepicker">
-                            <input name="date" type="text" class="form-control">
-                            <span class="input-group-append">
-                                <span class="input-group-text bg-white d-block">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                </div><br>
-                <div class="row form-group">
-                    <label for="date" class="col-sm-2 col-form-label">Exam Time</label>
+                    <label for="date" class="col-sm-2 col-form-label">Date & Time</label>
                     <div class="col-sm-4">
                         <div class="input-group date" id="duration">
-                            <input name="time" type="text" class="form-control time-pickable" placeholder="Exam Time" readonly>
+                            <input name="date_time" type="datetime-local" class="form-control" placeholder="Exam Date & Time" >
                         </div>
                     </div>
                 </div>
@@ -171,6 +158,16 @@
                         <div  class="input-group date" id="duration">
                             <input name="duration" type="number" class="form-control" placeholder="Minutes">
                         </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row form-group">
+                    <label for="date" class="col-sm-2 col-form-label">Publish/Pending</label>
+                    <div class="col-sm-4">
+                        <select name="status" class="form-select" aria-label="Default select example">
+                            <option selected>Publish</option>
+                            <option>Pending</option>
+                        </select>
                     </div>
                 </div>
                 <br>
@@ -256,7 +253,17 @@
         $(function () {
             $('#datepicker').datepicker();
         });
+
+        config = {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            altInput: true,
+            altFormat: "F j, Y (h:S K)"
+        }
+
+        flatpickr("input[type=datetime-local]", config);
     </script>
     <script type="text/javascript" src="js/timepick.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </body>
 </html>
