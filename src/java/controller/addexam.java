@@ -10,6 +10,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -49,30 +51,47 @@ public class addexam extends HttpServlet {
         System.out.println(uid);
 
         String pub = request.getParameter("publish");
+        String save = request.getParameter("save");
         if (pub.equals("Publish Paper")) {
 
-               try {
-            String e_name = request.getParameter("exam");
-            String e_date_time = request.getParameter("date_time");
-            String e_duration = request.getParameter("duration");
-            String status = request.getParameter("status");
-     
-            Connection con;
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
-            PreparedStatement ps = con.prepareStatement("insert into mcq_manage_app.exam(`e_name`,`e_duration`,`e_date_time`,`user_id`,`pub_or_pend`) values(?,?,?,?,?)");
-            ps.setString(1,e_name);
-            ps.setString(2,e_duration);
-            ps.setString(3,e_date_time);
-            ps.setString(4,uid);
-            ps.setString(5,status);
-            ps.executeUpdate();
-            response.sendRedirect("addQuestion.jsp");
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                String e_name = request.getParameter("exam");
+                String e_date_time = request.getParameter("date_time");
+                String e_duration = request.getParameter("duration");
+                String status = request.getParameter("status");
+
+                Connection con;
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                PreparedStatement ps = con.prepareStatement("insert into mcq_manage_app.exam(`e_name`,`e_duration`,`e_date_time`,`user_id`,`pub_or_pend`) values(?,?,?,?,?)");
+                ps.setString(1, e_name);
+                ps.setString(2, e_duration);
+                ps.setString(3, e_date_time);
+                ps.setString(4, uid);
+                ps.setString(5, status);
+                ps.executeUpdate();
+                response.sendRedirect("addQuestion.jsp");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
+        if (save.equals("Save Paper")) {
+            try {
+                Connection conn;
+                Class.forName("com.mysql.jdbc.Driver");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                Statement stmt = conn.createStatement();
+                String q = "select * from exam";
+                ResultSet rs = stmt.executeQuery(q);
+                if(rs.next()){
+                    
+                }
+            } catch (Exception e) {
+
+            }
         }
-        
+
     }
 
 }

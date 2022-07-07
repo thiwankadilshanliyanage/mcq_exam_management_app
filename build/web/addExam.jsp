@@ -72,6 +72,7 @@
             <table class="table bg-white" id="mytable">
                 <thead class="bg-dark text-light">
                     <tr>
+                        <th>Ex</th>
                         <th>Exam</th>
                         <th>Last Updated</th>
                         <th>Status</th>

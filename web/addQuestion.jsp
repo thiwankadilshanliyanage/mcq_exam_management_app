@@ -4,6 +4,11 @@
     Author     : Thiwanka
 --%>
 
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -81,55 +86,7 @@
                         <tr>
                             <td data-title="Exam">What is your name?</td>
                             <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">What is your name?</td>
-                            <td data-title="Last Updated">Answer 1, Answer 2, Answer 3, Answer 4</td>
-                        </tr>
+                        </tr>                        
                     </tbody>
                 </table>
             </div>
@@ -181,27 +138,49 @@
 
     </div>
     <div class="w-50 p-3 addquestiondiv border">
-        <form>
+        <form action="add_question" method="post">
             <div class="row g-2">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                    <label name="q1" class="col-form-label">Select Exam</label>
+                </div>
+                    <div class="col-sm-4">
+                        <select name="exam" class="form-select" aria-label="Default select example">
+                            <%
+                            try {
+                        Connection con;
+                        Class.forName("com.mysql.jdbc.Driver");
+                        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                        Statement st = con.createStatement();
+                        String query = "select * from exam";
+                        ResultSet rs= st.executeQuery(query);
+                        while(rs.next()){
+                            
+                            %>
+                            <option><%=rs.getString("e_name")%></option>
+                            <%
+                        }
+                     }catch(Exception e){
+                         
+                     }
+                            %>
+                        </select>
+                    </div>
+                </div>
                 <div class="col-md">
-                    <input type="number" class="form-control" placeholder="Number">
+                    <input name="q_no" type="number" class="form-control" placeholder="Number">
                 </div>
                 <div class="col-md col-xs-2">
-                    <input type="text" class="form-control" placeholder="Question">
+                    <input name="q" type="text" class="form-control" placeholder="Question">
                 </div>
             </div>
             <br>
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                    <label  class="col-form-label">1.</label>
+                    <label name="q1" class="col-form-label">1.</label>
                 </div>
                 <div class="col-auto width">
-                    <input type="text" id="inputPassword6" class="form-control" placeholder="Answer 1">
-                </div>
-                <div class="col-auto">
-                    <span class="form-text">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    </span>
+                    <input name="answer_1" type="text" id="inputPassword6" class="form-control" placeholder="Answer 1">
                 </div>
             </div><br>
             <div class="row g-3 align-items-center">
@@ -209,12 +188,7 @@
                     <label class="col-form-label">2.</label>
                 </div>
                 <div class="col-auto width">
-                    <input type="text" id="inputPassword6" class="form-control" placeholder="Answer 2">
-                </div>
-                <div class="col-auto">
-                    <span class="form-text">
-                        <input type="checkbox" class="form-check-input">
-                    </span>
+                    <input name="answer_2" type="text" id="inputPassword6" class="form-control" placeholder="Answer 2">
                 </div>
             </div><br>
             <div class="row g-3 align-items-center">
@@ -222,12 +196,7 @@
                     <label  class="col-form-label">3.</label>
                 </div>
                 <div class="col-auto width">
-                    <input type="text"  class="form-control" placeholder="Answer 3">
-                </div>
-                <div class="col-auto">
-                    <span  class="form-text">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    </span>
+                    <input name="answer_3" type="text"  class="form-control" placeholder="Answer 3">
                 </div>
             </div><br>
             <div class="row g-3 align-items-center">
@@ -235,16 +204,20 @@
                     <label class="col-form-label">4.</label>
                 </div>
                 <div class="col-auto width">
-                    <input type="text" class="form-control" placeholder="Answer 4">
-                </div>
-                <div class="col-auto">
-                    <span class="form-text">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    </span>
+                    <input name="answer_4" type="text" class="form-control" placeholder="Answer 4">
                 </div>
             </div><br>
+            <div class="col-sm-4">
+                        <select name="correct" class="form-select" aria-label="Default select example">
+                            <option selected>Select Correct Answer</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
             <div class="col-md-12 text-center">
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>               
         </form>
     </div>
