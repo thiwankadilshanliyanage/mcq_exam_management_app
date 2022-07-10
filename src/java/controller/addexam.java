@@ -51,7 +51,6 @@ public class addexam extends HttpServlet {
         System.out.println(uid);
 
         String pub = request.getParameter("publish");
-        String save = request.getParameter("save");
         if (pub.equals("Publish Paper")) {
 
             try {
@@ -75,23 +74,6 @@ public class addexam extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
-        if (save.equals("Save Paper")) {
-            try {
-                Connection conn;
-                Class.forName("com.mysql.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
-                Statement stmt = conn.createStatement();
-                String q = "select * from exam";
-                ResultSet rs = stmt.executeQuery(q);
-                if(rs.next()){
-                    
-                }
-            } catch (Exception e) {
-
-            }
-        }
-
     }
 
 }

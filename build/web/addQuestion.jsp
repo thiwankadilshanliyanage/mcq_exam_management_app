@@ -137,32 +137,32 @@
         </section>
 
     </div>
-    <div class="w-50 p-3 addquestiondiv border">
+    <div class="w-50 p-3 ccc border addquestiondiv">
         <form action="add_question" method="post">
             <div class="row g-2">
                 <div class="row g-3 align-items-center">
                     <div class="col-auto">
-                    <label name="q1" class="col-form-label">Select Exam</label>
-                </div>
+                        <label name="q1" class="col-form-label">Select Exam</label>
+                    </div>
                     <div class="col-sm-4">
                         <select name="exam" class="form-select" aria-label="Default select example">
                             <%
-                            try {
-                        Connection con;
-                        Class.forName("com.mysql.jdbc.Driver");
-                        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
-                        Statement st = con.createStatement();
-                        String query = "select * from exam";
-                        ResultSet rs= st.executeQuery(query);
-                        while(rs.next()){
-                            
+                                try {
+                                    Connection con;
+                                    Class.forName("com.mysql.jdbc.Driver");
+                                    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                                    Statement st = con.createStatement();
+                                    String query = "select * from exam";
+                                    ResultSet rs = st.executeQuery(query);
+                                    while (rs.next()) {
+
                             %>
                             <option><%=rs.getString("e_name")%></option>
                             <%
-                        }
-                     }catch(Exception e){
-                         
-                     }
+                                    }
+                                } catch (Exception e) {
+
+                                }
                             %>
                         </select>
                     </div>
@@ -173,14 +173,96 @@
                 <div class="col-md col-xs-2">
                     <input name="q" type="text" class="form-control" placeholder="Question">
                 </div>
+            </div><br> <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form></div><br><br><br><br>
+
+
+    <div class="w-50 p-3 border addquestionanswerdiv">
+        <form>
+            <div class="col-md">
+                <select name="exam_name" id="exam_name" onclick="select2();" onchange="this.form.submit();" class="form-select" aria-label="Default select example">
+                    <option value="0">Select Exam</option>
+                    <%
+                        try {
+                            Connection con;
+                            Class.forName("com.mysql.jdbc.Driver");
+                            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                            Statement st = con.createStatement();
+                            String query = "select * from exam";
+                            ResultSet rs = st.executeQuery(query);
+                            while (rs.next()) {
+                    %>
+                    <option value="<%=rs.getInt("id")%>"                           
+                            <%
+                                if (request.getParameter("exam_name") != null) {
+                                    if (rs.getInt("id") == Integer.parseInt(request.getParameter("exam_name"))) {
+                                        out.print("Selected");
+                                    }
+                                }
+                            %>
+
+                            ><%=rs.getString("e_name")%></option>
+                    <%
+                            }
+                        } catch (Exception e) {
+
+                        }
+                    %>
+                </select>
             </div>
             <br>
+            <div class="col-md col-xs-2">
+                <select name="" id="Q" onchange="select();" class="form-select" aria-label="Default select example">
+                    <option value="0">Select Question</option>
+                    <%
+//                        String examselector = request.getParameter("exam_name");
+//                        System.out.println(examselector);
+                        Connection con;
+                        Class.forName("com.mysql.jdbc.Driver");
+                        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                        Statement st = con.createStatement();
+                        String query = "select * from question where `exam_id`=?";
+                        PreparedStatement psmt = con.prepareStatement(query);
+                        psmt.setString(1, request.getParameter("exam_name"));
+
+                        ResultSet rs = psmt.executeQuery();
+                        while (rs.next()) {
+                    %>
+                    <option value="<%=rs.getInt("id")%>"><%=rs.getString("question")%></option>
+                    <%
+                        }
+                    %>
+                </select>
+            </div>
+        </form>
+        <br>
+        <form action="add_answers" method="post">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto width">
+                    <input style="border: none;
+                           background-color: transparent;
+                           color: transparent;
+                           resize: none;
+                           outline: none;" name="question" id="textvalue" type="text" >
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto width">
+                    <input style="border: none;
+                           background-color: transparent;
+                           color: #333232;
+                           resize: none;
+                           outline: none;" name="exam" id="textvalue2" type="text" >
+                </div>
+            </div><br>
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
                     <label name="q1" class="col-form-label">1.</label>
                 </div>
                 <div class="col-auto width">
-                    <input name="answer_1" type="text" id="inputPassword6" class="form-control" placeholder="Answer 1">
+                    <input name="answer_1" type="text" class="form-control" placeholder="Answer 1">
                 </div>
             </div><br>
             <div class="row g-3 align-items-center">
@@ -188,7 +270,7 @@
                     <label class="col-form-label">2.</label>
                 </div>
                 <div class="col-auto width">
-                    <input name="answer_2" type="text" id="inputPassword6" class="form-control" placeholder="Answer 2">
+                    <input name="answer_2" type="text" class="form-control" placeholder="Answer 2">
                 </div>
             </div><br>
             <div class="row g-3 align-items-center">
@@ -208,17 +290,17 @@
                 </div>
             </div><br>
             <div class="col-sm-4">
-                        <select name="correct" class="form-select" aria-label="Default select example">
-                            <option selected>Select Correct Answer</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
-                    </div>
-            <div class="col-md-12 text-center">
+                <select name="correct" class="form-select" aria-label="Default select example">
+                    <option selected>Select Correct Answer</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+            <br> <div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </div>               
+            </div>
         </form>
     </div>
 
@@ -235,6 +317,17 @@
         }
 
         flatpickr("input[type=datetime-local]", config);
+
+        function select() {
+            var d = document.getElementById("Q");
+            var displaytext = d.options[d.selectedIndex].text;
+            document.getElementById("textvalue").value = displaytext;
+        }
+        function select2() {
+            var e = document.getElementById("exam_name");
+            var displaytext = e.options[e.selectedIndex].text;
+            document.getElementById("textvalue2").value = displaytext;
+        }
     </script>
     <script type="text/javascript" src="js/timepick.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">

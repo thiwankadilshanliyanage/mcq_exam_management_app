@@ -4,6 +4,10 @@
     Author     : Thiwanka
 --%>
 
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +17,7 @@
         <link type="text/css" rel="stylesheet" href="css/exam.css">
         <title>Students Exams</title>
         <!--navbar-->
-        
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -50,60 +54,50 @@
             </div>
         </div>
     </nav> 
-    </head>
-    <body>
-       <section class="p-5">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <form class="d-grid gap-2 d-md-flex justify-content-md-end col-3 search" role="search">
+</head>
+<body>
+    <section class="p-5">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <form class="d-grid gap-2 d-md-flex justify-content-md-end col-3 search" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            </div><br><br>
-            <div class="table-responsive" id="no-more-tables">
-                <table class="table bg-white">
-                    <thead class="bg-dark text-light">
-                        <tr>
-                            <th>Exam</th>
-                            <th>Starting Time</th>
-                            <th>Exam Duration</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-title="Exam">1st semester</td>
-                            <td data-title="Starting Time">30th June in 2022 8.00 AM</td>
-                            <td data-title="Exam Duratio">Published</td>
-                            <td data-title="Status">Published</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">1st semester</td>
-                            <td data-title="Starting Time">30th June in 2022 8.00 AM</td>
-                            <td data-title="Exam Duratio">Published</td>
-                            <td data-title="Status">Published</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">1st semester</td>
-                            <td data-title="Starting Time">30th June in 2022 8.00 AM</td>
-                            <td data-title="Exam Duratio">Published</td>
-                            <td data-title="Status">Published</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">1st semester</td>
-                            <td data-title="Starting Time">30th June in 2022 8.00 AM</td>
-                            <td data-title="Exam Duratio">Published</td>
-                            <td data-title="Status">Published</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Exam">1st semester</td>
-                            <td data-title="Starting Time">30th June in 2022 8.00 AM</td>
-                            <td data-title="Exam Duratio">Published</td>
-                            <td data-title="Status">Published</td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </body>
+        </div><br><br>
+        <div class="table-responsive" id="no-more-tables">
+            <table class="table bg-white">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>Exam</th>
+                        <th>Starting Time</th>
+                        <th>Exam Duration</th>
+                        <th>Participate</th>
+                    </tr>
+                </thead>
+                <%
+                    try {
+                        String pubish = "Publish";
+                        Connection con;
+                        Class.forName("com.mysql.jdbc.Driver");
+                        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                        String query = "select * from exam where `pub_or_pend`='"+pubish+"'";
+                        PreparedStatement ps = con.prepareStatement(query);
+                        ResultSet rs = ps.executeQuery();
+                        while(rs.next()){
+                            %>
+                            <td data-title="Exam"><%= rs.getString("e_name")%></td>
+                            <td data-title="Starting Time"><%= rs.getString("e_date_time")%></td>
+                            <td data-title="Exam Duration"><%= rs.getString("e_duration")%></td>
+                            <td data-title="Participate"><input type="submit" value="Go to exam"></td>
+                
+                            
+                            <%
+                        }
+                    } catch (Exception e) {
+                    }
+                %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
 </html>

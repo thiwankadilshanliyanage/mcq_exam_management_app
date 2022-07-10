@@ -72,10 +72,10 @@
             <table class="table bg-white" id="mytable">
                 <thead class="bg-dark text-light">
                     <tr>
-                        <th>Ex</th>
                         <th>Exam</th>
                         <th>Last Updated</th>
                         <th>Status</th>
+                        <th>Edit</th>
 
                     </tr>
                 </thead>
@@ -105,6 +105,7 @@
                     <td data-title="Exam"><%= rs.getString("e_name")%></td>
                     <td data-title="Last Updated"><%= rs.getString("e_date_time")%></td>
                     <td data-title="Status"><%= rs.getString("pub_or_pend")%></td>
+                    <td data-title="Status"><input type="submit" value="Edit"></td>
                 </tr>                               
                 <%
                         }

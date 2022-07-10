@@ -130,55 +130,7 @@ public final class addQuestion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <tr>\n");
       out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
       out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td data-title=\"Exam\">What is your name?</td>\n");
-      out.write("                            <td data-title=\"Last Updated\">Answer 1, Answer 2, Answer 3, Answer 4</td>\n");
-      out.write("                        </tr>\n");
+      out.write("                        </tr>                        \n");
       out.write("                    </tbody>\n");
       out.write("                </table>\n");
       out.write("            </div>\n");
@@ -229,26 +181,26 @@ public final class addQuestion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </section>\n");
       out.write("\n");
       out.write("    </div>\n");
-      out.write("    <div class=\"w-50 p-3 addquestiondiv border\">\n");
+      out.write("    <div class=\"w-50 p-3 ccc border addquestiondiv\">\n");
       out.write("        <form action=\"add_question\" method=\"post\">\n");
       out.write("            <div class=\"row g-2\">\n");
       out.write("                <div class=\"row g-3 align-items-center\">\n");
       out.write("                    <div class=\"col-auto\">\n");
-      out.write("                    <label name=\"q1\" class=\"col-form-label\">Select Exam</label>\n");
-      out.write("                </div>\n");
+      out.write("                        <label name=\"q1\" class=\"col-form-label\">Select Exam</label>\n");
+      out.write("                    </div>\n");
       out.write("                    <div class=\"col-sm-4\">\n");
       out.write("                        <select name=\"exam\" class=\"form-select\" aria-label=\"Default select example\">\n");
       out.write("                            ");
 
-                            try {
-                        Connection con;
-                        Class.forName("com.mysql.jdbc.Driver");
-                        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
-                        Statement st = con.createStatement();
-                        String query = "select * from exam";
-                        ResultSet rs= st.executeQuery(query);
-                        while(rs.next()){
-                            
+                                try {
+                                    Connection con;
+                                    Class.forName("com.mysql.jdbc.Driver");
+                                    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                                    Statement st = con.createStatement();
+                                    String query = "select * from exam";
+                                    ResultSet rs = st.executeQuery(query);
+                                    while (rs.next()) {
+
                             
       out.write("\n");
       out.write("                            <option>");
@@ -256,10 +208,10 @@ public final class addQuestion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</option>\n");
       out.write("                            ");
 
-                        }
-                     }catch(Exception e){
-                         
-                     }
+                                    }
+                                } catch (Exception e) {
+
+                                }
                             
       out.write("\n");
       out.write("                        </select>\n");
@@ -271,7 +223,55 @@ public final class addQuestion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"col-md col-xs-2\">\n");
       out.write("                    <input name=\"q\" type=\"text\" class=\"form-control\" placeholder=\"Question\">\n");
       out.write("                </div>\n");
+      out.write("            </div><br> <div class=\"col-md-12 text-center\">\n");
+      out.write("                <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n");
       out.write("            </div>\n");
+      out.write("        </form></div><br><br><br><br>\n");
+      out.write("\n");
+      out.write(" \n");
+      out.write("        <div class=\"w-50 p-3 border addquestionanswerdiv\">\n");
+      out.write("        <form>\n");
+      out.write("            <div class=\"col-md\">\n");
+      out.write("                    <select name=\"exam_name\" class=\"form-select\" aria-label=\"Default select example\">\n");
+      out.write("                    <option selected>Select Exam</option>\n");
+      out.write("                    ");
+
+                                try {
+                                    Connection con;
+                                    Class.forName("com.mysql.jdbc.Driver");
+                                    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+                                    Statement st = con.createStatement();
+                                    String query = "select * from exam";
+                                    ResultSet rs = st.executeQuery(query);
+                                    while (rs.next()) {
+
+                            
+      out.write("\n");
+      out.write("                            <option>");
+      out.print(rs.getString("e_name"));
+      out.write("</option>\n");
+      out.write("                            ");
+
+                                    }
+                                } catch (Exception e) {
+
+                                }
+                            
+      out.write("\n");
+      out.write("                </select>\n");
+      out.write("                </div>\n");
+      out.write("            <br>\n");
+      out.write("                <div class=\"col-md col-xs-2\">\n");
+      out.write("                     <select name=\"\" class=\"form-select\" aria-label=\"Default select example\">\n");
+      out.write("                    <option selected>Select Question</option>\n");
+      out.write("                    ");
+
+                        String examselector = request.getParameter("exam_name");
+                        System.out.println(examselector);
+                    
+      out.write("\n");
+      out.write("                </select>\n");
+      out.write("                </div>\n");
       out.write("            <br>\n");
       out.write("            <div class=\"row g-3 align-items-center\">\n");
       out.write("                <div class=\"col-auto\">\n");
@@ -306,17 +306,15 @@ public final class addQuestion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("            </div><br>\n");
       out.write("            <div class=\"col-sm-4\">\n");
-      out.write("                        <select name=\"correct\" class=\"form-select\" aria-label=\"Default select example\">\n");
-      out.write("                            <option selected>Select Correct Answer</option>\n");
-      out.write("                            <option>1</option>\n");
-      out.write("                            <option>2</option>\n");
-      out.write("                            <option>3</option>\n");
-      out.write("                            <option>4</option>\n");
-      out.write("                        </select>\n");
-      out.write("                    </div>\n");
-      out.write("            <div class=\"col-md-12 text-center\">\n");
-      out.write("                <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n");
-      out.write("            </div>               \n");
+      out.write("                <select name=\"correct\" class=\"form-select\" aria-label=\"Default select example\">\n");
+      out.write("                    <option selected>Select Correct Answer</option>\n");
+      out.write("                    <option>1</option>\n");
+      out.write("                    <option>2</option>\n");
+      out.write("                    <option>3</option>\n");
+      out.write("                    <option>4</option>\n");
+      out.write("                </select>\n");
+      out.write("            </div>\n");
+      out.write("\n");
       out.write("        </form>\n");
       out.write("    </div>\n");
       out.write("\n");

@@ -46,6 +46,7 @@ public class add_question extends HttpServlet {
         String correct = request.getParameter("correct");
         String Exam = request.getParameter("exam");
         String exam_id = null;
+        double plus = 1;
 
 //        System.out.println(q_no);
 //        System.out.println(q);
@@ -58,9 +59,9 @@ public class add_question extends HttpServlet {
 
         try {
             
-        Connection con;
-        Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
+            Connection con;
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
         Statement st = con.createStatement();
         String query = "select * from exam where `e_name`='"+Exam+"'";
             ResultSet rs = st.executeQuery(query);
