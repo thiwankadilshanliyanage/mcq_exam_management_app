@@ -60,7 +60,8 @@
         </div>
     </nav>
 </head>
-<body>    
+<body>
+       
     <section class="p-5">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
@@ -68,6 +69,7 @@
             <input class="col-3" type="search" placeholder="Search" aria-label="Search" id="myinput" onkeyup='tableSearch()'>
             <form action="addQuestion.jsp"><button type="submit" class="qbtn btn btn-primary btn-lg" >New Exam</button></form>
         </div><br><br>
+        <form  method="" action=""> 
         <div class="table-responsive" id="no-more-tables">
             <table class="table bg-white" id="mytable">
                 <thead class="bg-dark text-light">
@@ -94,18 +96,23 @@
                             String exam = rs.getString("e_name");
                             String lastupdated = rs.getString("e_date_time");
                             String status = rs.getString("pub_or_pend");
+                            String id = rs.getString("id");
 
                             System.out.println(exam);
                             System.out.println(lastupdated);
                             System.out.println(status);
-
+                            
+                            
+//                            
 
                 %>
                 <tr>
                     <td data-title="Exam"><%= rs.getString("e_name")%></td>
                     <td data-title="Last Updated"><%= rs.getString("e_date_time")%></td>
                     <td data-title="Status"><%= rs.getString("pub_or_pend")%></td>
-                    <td data-title="Status"><input type="submit" value="Edit"></td>
+                    <td class="text-center">
+                        <a href="updateExam.jsp?u=<%=rs.getString("id")%>" class="btn btn-primary">Update</a>
+                    </td>
                 </tr>                               
                 <%
                         }
@@ -115,6 +122,7 @@
                 %>
         </div>
     </section>
+    </form>
     <script type="text/javascript">
         function tableSearch() {
             let input, filter, table, tr, td, i, txtValue;

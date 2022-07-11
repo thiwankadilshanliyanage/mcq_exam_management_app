@@ -3,12 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
-import java.sql.Connection;
 
-public final class students_0020exams_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class updateExam_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -48,19 +44,20 @@ public final class students_0020exams_jsp extends org.apache.jasper.runtime.Http
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">\n");
-      out.write("        <link type=\"text/css\" rel=\"stylesheet\" href=\"css/exam.css\">\n");
-      out.write("        <title>Students Exams</title>\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n");
+      out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>\n");
+      out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js\"></script>\n");
+      out.write("        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js\"></script>\n");
+      out.write("        <link type=\"text/css\" rel=\"stylesheet\" href=\"css/addQ.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css\">\n");
       out.write("        <!--navbar-->\n");
-      out.write("\n");
       out.write("    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n");
       out.write("        <div class=\"container-fluid\">\n");
       out.write("            <a class=\"navbar-brand\" href=\"#\">Navbar</a>\n");
@@ -96,63 +93,61 @@ public final class students_0020exams_jsp extends org.apache.jasper.runtime.Http
       out.write("                </form>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
-      out.write("    </nav> \n");
-      out.write("</head>\n");
-      out.write("<body>\n");
-      out.write("    <section class=\"p-5\">\n");
-      out.write("        <div class=\"d-grid gap-2 d-md-flex justify-content-md-end\">\n");
-      out.write("            <form class=\"d-grid gap-2 d-md-flex justify-content-md-end col-3 search\" role=\"search\">\n");
-      out.write("                <input class=\"form-control me-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n");
-      out.write("                <button class=\"btn btn-outline-success\" type=\"submit\">Search</button>\n");
+      out.write("    </nav>\n");
+      out.write("        <title>Update Exam</title>\n");
+      out.write("    </head>\n");
+      out.write("    <body>\n");
+      out.write("        <div class=\"d-inline container form-control d-flex align-items-center justify-content-center\">\n");
+      out.write("            <div class=\"border\">\n");
+      out.write("        <form method=\"post\" action=\"addexam\">\n");
+      out.write("                <button type=\"button\" class=\"btn btn-labeled btn-default\">\n");
+      out.write("                    <i class=\"fa fa-chevron-left\"></i></button>\n");
+      out.write("                <span class=\"btn-label exname\">Exam Name</span><br><br>\n");
+      out.write("                <div class=\"row form-group\">\n");
+      out.write("                    <label for=\"date\" class=\"col-sm-2 col-form-label\">Exam Name</label>\n");
+      out.write("                    <div class=\"col-sm-4\">\n");
+      out.write("                        <div class=\"input-group date\" id=\"duration\">\n");
+      out.write("                            <input name=\"exam\" type=\"text\" class=\"form-control\" placeholder=\"Exam Name\">\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <br>\n");
+      out.write("                <div class=\"row form-group\">\n");
+      out.write("                    <label for=\"date\" class=\"col-sm-2 col-form-label\">Date & Time</label>\n");
+      out.write("                    <div class=\"col-sm-4\">\n");
+      out.write("                        <div class=\"input-group date\" id=\"duration\">\n");
+      out.write("                            <input name=\"date_time\" type=\"datetime-local\" class=\"form-control\" placeholder=\"Exam Date & Time\" >\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <br>\n");
+      out.write("                <div class=\"row form-group\">\n");
+      out.write("                    <label for=\"date\" class=\"col-sm-2 col-form-label\">Exam Duration</label>\n");
+      out.write("                    <div class=\"col-sm-4\">\n");
+      out.write("                        <div  class=\"input-group date\" id=\"duration\">\n");
+      out.write("                            <input name=\"duration\" type=\"number\" class=\"form-control\" placeholder=\"Minutes\">\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <br>\n");
+      out.write("                <div class=\"row form-group\">\n");
+      out.write("                    <label for=\"date\" class=\"col-sm-2 col-form-label\">Publish/Pending</label>\n");
+      out.write("                    <div class=\"col-sm-4\">\n");
+      out.write("                        <select name=\"status\" class=\"form-select\" aria-label=\"Default select example\">\n");
+      out.write("                            <option selected>Publish</option>\n");
+      out.write("                            <option>Pending</option>\n");
+      out.write("                        </select>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <br>\n");
+      out.write("                <div class=\"-grid gap-2 d-md-flex justify-content-md-end\">\n");
+      out.write("                    <input type=\"submit\" name=\"publish\" class=\"btn btn-success\" value=\"Save Paper\">\n");
+      out.write("                </div>   \n");
       out.write("            </form>\n");
-      out.write("        </div><br><br>\n");
-      out.write("        <div class=\"table-responsive\" id=\"no-more-tables\">\n");
-      out.write("            <table class=\"table bg-white\">\n");
-      out.write("                <thead class=\"bg-dark text-light\">\n");
-      out.write("                    <tr>\n");
-      out.write("                        <th>Exam</th>\n");
-      out.write("                        <th>Starting Time</th>\n");
-      out.write("                        <th>Exam Duration</th>\n");
-      out.write("                        <th>Participate</th>\n");
-      out.write("                    </tr>\n");
-      out.write("                </thead>\n");
-      out.write("                ");
-
-                    try {
-                        String pubish = "Publish";
-                        Connection con;
-                        Class.forName("com.mysql.jdbc.Driver");
-                        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mcq_manage_app", "root", "thiwanka123");
-                        String query = "select * from exam where `pub_or_pend`='"+pubish+"'";
-                        PreparedStatement ps = con.prepareStatement(query);
-                        ResultSet rs = ps.executeQuery();
-                        while(rs.next()){
-                            
-      out.write("\n");
-      out.write("                            <td data-title=\"Exam\">");
-      out.print( rs.getString("e_name"));
-      out.write("</td>\n");
-      out.write("                            <td data-title=\"Starting Time\">");
-      out.print( rs.getString("e_date_time"));
-      out.write("</td>\n");
-      out.write("                            <td data-title=\"Exam Duration\">");
-      out.print( rs.getString("e_duration"));
-      out.write("</td>\n");
-      out.write("                            <td data-title=\"Participate\"><input type=\"submit\" value=\"Go to exam\"></td>\n");
-      out.write("                \n");
-      out.write("                            \n");
-      out.write("                            ");
-
-                        }
-                    } catch (Exception e) {
-                    }
-                
-      out.write("\n");
-      out.write("                </tbody>\n");
-      out.write("            </table>\n");
+      out.write("                </div>\n");
       out.write("        </div>\n");
-      out.write("    </section>\n");
-      out.write("</body>\n");
+      out.write("                \n");
+      out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

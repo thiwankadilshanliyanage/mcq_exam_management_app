@@ -104,7 +104,8 @@ public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\n");
       out.write("    </nav>\n");
       out.write("</head>\n");
-      out.write("<body>    \n");
+      out.write("<body>\n");
+      out.write("       \n");
       out.write("    <section class=\"p-5\">\n");
       out.write("        <div class=\"d-grid gap-2 d-md-flex justify-content-md-end\">\n");
       out.write("\n");
@@ -112,6 +113,7 @@ public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <input class=\"col-3\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" id=\"myinput\" onkeyup='tableSearch()'>\n");
       out.write("            <form action=\"addQuestion.jsp\"><button type=\"submit\" class=\"qbtn btn btn-primary btn-lg\" >New Exam</button></form>\n");
       out.write("        </div><br><br>\n");
+      out.write("        <form  method=\"\" action=\"\"> \n");
       out.write("        <div class=\"table-responsive\" id=\"no-more-tables\">\n");
       out.write("            <table class=\"table bg-white\" id=\"mytable\">\n");
       out.write("                <thead class=\"bg-dark text-light\">\n");
@@ -139,11 +141,14 @@ public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
                             String exam = rs.getString("e_name");
                             String lastupdated = rs.getString("e_date_time");
                             String status = rs.getString("pub_or_pend");
+                            String id = rs.getString("id");
 
                             System.out.println(exam);
                             System.out.println(lastupdated);
                             System.out.println(status);
-
+                            
+                            
+//                            
 
                 
       out.write("\n");
@@ -157,7 +162,11 @@ public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <td data-title=\"Status\">");
       out.print( rs.getString("pub_or_pend"));
       out.write("</td>\n");
-      out.write("                    <td data-title=\"Status\"><link href=\"addQuestion.jsp\"></td>\n");
+      out.write("                    <td class=\"text-center\">\n");
+      out.write("                        <a href=\"updateExam.jsp?u=");
+      out.print(rs.getString("id"));
+      out.write("\" class=\"btn btn-primary\">Update</a>\n");
+      out.write("                    </td>\n");
       out.write("                </tr>                               \n");
       out.write("                ");
 
@@ -169,6 +178,7 @@ public final class addExam_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("        </div>\n");
       out.write("    </section>\n");
+      out.write("    </form>\n");
       out.write("    <script type=\"text/javascript\">\n");
       out.write("        function tableSearch() {\n");
       out.write("            let input, filter, table, tr, td, i, txtValue;\n");

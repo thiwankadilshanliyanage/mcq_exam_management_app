@@ -129,9 +129,7 @@
                 </div>
                 <br>
                 <div class="-grid gap-2 d-md-flex justify-content-md-end">
-                    <input type="submit" name="update" class="btn btn-outline-success" value="Update"/>
-                    <input type="submit" name="save" class="btn btn-primary" value="Save Paper">
-                    <input type="submit" name="publish" class="btn btn-success" value="Publish Paper">
+                    <input type="submit" name="publish" class="btn btn-success" value="Save Paper">
                 </div>   
             </form>
         </section>
